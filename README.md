@@ -7,6 +7,9 @@
 * Naming convention for data files: **CitiBike[startmonth][endmonth][year].csv**
 * For example, the data filename for the "Download data from Oct - Dec 2013..." option on citibikenyc.com would be CitiBikeOctDec2013.csv
 
+####Tips, Links, Tricks
+* [Embedding Interactive Maps into an IPython Notebook](http://www.machinalis.com/blog/embedding-interactive-maps-into-an-ipython-nb/)
+
 ####Individual explorations (on separate branches of the repo)
 * Where do bikes live? Gather some insights for the punchline discussion on January 31.
 * Explore tools such as ipython notebooks, interactive widgets, seaborn, d3, etc.
