@@ -14,7 +14,7 @@
 import pandas as pd 
 import os
 
-data_months = ['CitiBikeJulySept2014']
+data_months = ['CitiBikeJulySept2014', 'CitiBikeFebruary2014']
 
 for dataset in data_months:
     datapath = os.path.join(os.path.abspath('.'), 'data/%s.csv' % dataset)
