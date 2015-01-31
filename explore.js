@@ -20,14 +20,15 @@ var chart = d3.select(".chart")
 d3.json("CitiBikeFebruary2014_100rows.json", function(error, json) {
     citibikeData = json;
     console.log("loaded CitiBikeFebruary2014_100rows data!");
+    
     tripdurationVals = d3.values(citibikeData["tripduration"]);
-    console.log(d3.max(tripdurationVals));
-    xscaling.domain([0, d3.max(tripdurationVals)]);
+    tripdurationMaxVal = d3.max(tripdurationVals);
+    xscaling.domain([0, tripdurationMaxVal]);
 
     chart.attr("height", barHeight * tripdurationVals.length);
 
     var bar = chart.selectAll("g")
-        .data(citibikeData)
+        .data(citibikeData["tripdurationVals"])
       .enter().append("g")
         .attr("transform", function (d, i) { return "translate(0," + i * barHeight + ")"; })
 
