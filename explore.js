@@ -5,6 +5,9 @@
 // bar chart tutorial, part 2
 // http://bost.ocks.org/mike/bar/2/
 
+// d3 exercise: bar chart of the trip duration values for the first 100 rows of 
+// the February 2014 citibike data!
+
 var width = 420;
 var barHeight = 20;
 
@@ -28,19 +31,19 @@ d3.json("CitiBikeFebruary2014_100rows.json", function(error, json) {
     chart.attr("height", barHeight * tripdurationVals.length);
 
     var bar = chart.selectAll("g")
-        .data(citibikeData["tripdurationVals"])
+        .data(tripdurationVals)
       .enter().append("g")
         .attr("transform", function (d, i) { return "translate(0," + i * barHeight + ")"; })
 
     bar.append("rect")
-        .attr("width", function(d) { return xscaling(d.value); } )
+        .attr("width", function(d) { return xscaling(d); } )
         .attr("height", barHeight - 1);
 
     bar.append("text")
-        .attr("x", function(d) { return x(d.value) - 3; })
+        .attr("x", function(d) { return xscaling(d) - 3; })
         .attr("y", barHeight / 2)
         .attr("dy", ".35em")
-        .text(function(d) { return d.value; });
+        .text(function(d) { return d; });
 
 });
 
