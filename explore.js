@@ -4,31 +4,23 @@
 
 // Code snippets from the introduction on http://d3js.org/
 
-d3.select("body").selectAll("p")
-    .data([4, 8, 15, 16, 23, 42])
-.enter().append("p")
-    .text(function(d) { return "I'm number " + d + "!"; });
-
-d3.selectAll("p").style("color", function() {
-  return "hsl(" + Math.random() * 360 + ",100%,50%)";
-});
-
-d3.selectAll("p")
-    .data([4, 8, 15, 16, 23, 42])
-    .style("font-size", function(d) { return d + "px"; });
-
-// Update…
-var p = d3.select("body").selectAll("p")
-    .data([4, 8, 15, 16, 23, 42])
-    .text(String);
-
-// Enter…
-p.enter().append("p")
-    .text(String);
-
-// Exit…
-p.exit().remove();
-
 d3.json("CitiBikeFebruary2014_100rows.json", function(json) {
-    data = json;
+    citibikeData = json;
 });
+
+var data = [4, 8, 15, 16, 23, 42];
+
+// bar chart tutorial, part 1
+// http://bost.ocks.org/mike/bar/
+
+// mapping from data space (domain) to display space (range)
+scaling = d3.scale.linear()
+    .domain([0, d3.max(data)])
+    .range([0, 420]);
+
+d3.select(".chart")
+  .selectAll("div")
+    .data(data)
+  .enter().append("div")
+    .style("width", function(d) { return scaling(d) + "px"; })
+    .text(function(d) { return d; });
