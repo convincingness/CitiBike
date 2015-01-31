@@ -28,3 +28,7 @@ p.enter().append("p")
 
 // Exit…
 p.exit().remove();
+
+d3.json("CitiBikeFebruary2014_100rows.json", function(json) {
+    data = json;
+});
