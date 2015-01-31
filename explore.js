@@ -47,7 +47,18 @@ d3.json("CitiBikeFebruary2014_100rows.json", function(error, json) {
 
 });
 
+// some attempt at type safety
 function type(d) {
   d.value = +d.value; // coerce to number
   return d;
 }
+
+// dat.GUI stuff!
+
+function guiUpdate() {
+    console.log(guiParams.name);
+}
+
+guiParams = {name: "EMR"}
+var gui = new dat.GUI();
+gui.add(guiParams,"name").onChange(guiUpdate);
