@@ -15,27 +15,13 @@ body {
   text-align: left;
 }
 
-
-h2 {
-  font-family: 'Quicksand', serif;
-  font-size: 48px;
-  text-align: left;
-  color: #67D65B;
+/*svg things*/
+.chart rect {
+  fill: steelblue;
 }
 
-h3 {
-  font-family: 'Quicksand', serif;
-  font-size: 24px;
-  font-weight: bold;
-  text-align: left;
-  color: #67D65B;
-}
-
-.chart div {
+.chart text {
+  fill: white;
   font: 10px sans-serif;
-  background-color: steelblue;
-  text-align: right;
-  padding: 3px;
-  margin: 1px;
-  color: white;
-}    
+  text-anchor: end;
+}
